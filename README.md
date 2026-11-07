@@ -61,14 +61,26 @@ Supporting material shipped with the skill:
 
 ## Install
 
+**From GitHub (recommended):**
+
+```bash
+dsh plugin --profile <nama-profil> add github:mulqizamzam/mulqi-berburu-taget#main
+```
+
+**From a local directory:**
+
 ```bash
 dsh plugin --profile <nama-profil> add /path/ke/mulqi-berburu-target
 ```
 
-Local directory installation links the package; the bundle then
-appears in the profile's bundle inventory and activates on the next
-host start (HMR may activate new bundles without a restart; replacing
-an installed package requires a restart to load a fresh module).
+After install, the bundle appears in the profile's bundle inventory.
+New bundles may activate via HMR without a restart; replacing an
+already-installed package requires a host restart to load the fresh
+module generation.
+
+## Docs
+
+- [Bahasa Indonesia](README-ID.md) — dokumentasi lengkap dalam bahasa Indonesia.
 
 ## Use
 
