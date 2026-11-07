@@ -91,6 +91,91 @@ verification, scam-risk review, opportunity comparison, or
 CV-to-role matching. Direct invocation is also supported
 (`mulqi-berburu-target`). No configuration surface is exposed.
 
+## Real-world examples
+
+Each prompt below is a complete, copy-paste-ready input. The skill
+selects the narrowest matching mode automatically; name a mode
+explicitly to override.
+
+### 1. Targeted job search (Quick Hunt)
+
+```text
+Find Senior DevOps Engineer roles in Singapore posted in the last
+14 days. Prioritize official company career pages. Show the source
+URL, publication date, and active status for each result.
+```
+
+**What to expect:** A compact table of confirmed vacancies with
+source URLs, publication dates, and verification level (V1–V5).
+`Not disclosed` / `Unknown` where data is missing — no invented
+salaries or deadlines.
+
+### 2. Verify a specific posting (Verification Hunt)
+
+```text
+Check whether this job posting is authentic:
+https://careers.example.com/jobs/12345
+Verify: is the employer real, is the application URL official,
+is the listing currently active, and are there any fraud indicators?
+```
+
+**What to expect:** Per-field verification (employer, listing, URL,
+status) each with evidence and confidence level. Fraud signals
+isolated in a risk section — never recommended as a valid vacancy.
+
+### 3. Research employer hiring signals (Hidden Hunt)
+
+```text
+Research whether Acme Corp is expanding into Southeast Asia and
+likely hiring. Use only public sources (news, filings, careers page
+activity). Separate confirmed vacancies from inferred signals.
+Do not report hypotheses as openings.
+```
+
+**What to expect:** Labeled hiring signals with source URL, date,
+and a short evidence note. Each item marked
+**Inferred hiring signal — no vacancy confirmed** unless a
+separate current posting is found.
+
+### 4. Match your CV to roles (CV Match Hunt)
+
+```text
+Compare this CV against the three roles you found:
+[paste CV content]
+Show evidence for the match score, list requirements the CV
+covers and gaps, and flag missing fields. Do not submit anything.
+```
+
+**What to expect:** Per-role candidate-match score with factors,
+weights, and evidence. `Not scored` when candidate data is
+insufficient. No application is submitted without explicit
+instruction.
+
+### 5. Global remote search with constraints (Global Hunt)
+
+```text
+Search for remote Product Manager roles that explicitly accept
+applicants based in Indonesia. Check work authorization, language
+requirements, and time-zone overlap per posting. Currency and
+salary where stated — no conversion without a sourced rate.
+```
+
+**What to expect:** Per-posting country-eligibility check, language
+and timezone constraints, salary as stated with currency.
+Unverifiable fields marked `Unknown`.
+
+### 6. Scam-risk review (Verification Hunt)
+
+```text
+This job posting asks for an upfront training fee of $500 before
+onboarding. Assess the scam risk level and what a legitimate
+employer would do differently. Do not click the link.
+```
+
+**What to expect:** Risk level (Low/Moderate/High/Critical) with
+concrete evidence. Safe verification steps. No instruction to
+interact with the risky posting.
+
 ## Troubleshooting
 
 - **Bundle skipped at boot** — the host version must be exactly

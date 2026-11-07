@@ -102,6 +102,93 @@ lowongan, tinjauan risiko penipuan, perbandingan peluang, atau
 pencocokan CV ke peran. Panggilan langsung juga didukung
 (`mulqi-berburu-target`). Tidak ada permukaan konfigurasi.
 
+## Contoh penggunaan nyata
+
+Setiap prompt di bawah adalah input lengkap, siap salin-tempel.
+Skill memilih mode paling sempit yang cocok secara otomatis;
+sebutkan mode eksplisit untuk override.
+
+### 1. Pencarian pekerjaan terfokus (Quick Hunt)
+
+```text
+Cari peran Senior DevOps Engineer di Singapura yang dipublikasikan
+dalam 14 hari terakhir. Prioritaskan halaman karir resmi perusahaan.
+Tampilkan URL sumber, tanggal publikasi, dan status aktif untuk
+setiap hasil.
+```
+
+**Ekspektasi:** Tabel ringkas lowongan terkonfirmasi dengan
+URL sumber, tanggal publikasi, dan tingkat verifikasi (V1–V5).
+`Tidak diungkapkan` / `Tidak diketahui` jika data tidak ada —
+tidak ada gaji atau tenggat yang diarangkan.
+
+### 2. Verifikasi postingan tertentu (Verification Hunt)
+
+```text
+Periksa apakah lowongan ini asli:
+https://careers.contoh.co.id/lowongan/12345
+Verifikasi: apakah perusahaan nyata, URL aplikasi resmi,
+listing aktif, dan apakah ada indikator penipuan?
+```
+
+**Ekspektasi:** Verifikasi per-field (perusahaan, listing, URL,
+status) masing-masing dengan bukti dan tingkat kepercayaan.
+Sinyal penipuan terisolasi di seksi risiko — tidak pernah
+direkomendasikan sebagai lowongan valid.
+
+### 3. Riset sinyal perekrutan (Hidden Hunt)
+
+```text
+Riset apakah Acme Corp sedang ekspansi ke Asia Tenggara dan
+kemungkinan merekrut. Gunakan hanya sumber publik (berita,
+laporan, aktivitas halaman karir). Pisahkan lowongan terkonfirmasi
+dari sinyal terindikasi. Jangan laporkan hipotesis sebagai lowongan.
+```
+
+**Ekspektasi:** Sinyal perekrutan berlabel dengan URL sumber,
+tanggal, dan catatan bukti singkat. Setiap item ditandai
+**Sinyal perekrutan terindikasi — tidak ada lowongan terkonfirmasi**
+kecuali ada postingan terpisah yang sedang aktif.
+
+### 4. Cocokkan CV ke peran (CV Match Hunt)
+
+```text
+Bandingkan CV ini dengan tiga peran yang kamu temukan:
+[tempel konten CV]
+Tampilkan bukti untuk skor pencocokan, daftar persyaratan
+yang dicover dan gap-nya, dan flag field yang hilang.
+Jangan mengirim apa pun.
+```
+
+**Ekspektasi:** Skor pencocokan per-peran dengan faktor,
+bobot, dan bukti. `Tidak dinilai` jika data kandidat
+cukup. Tidak ada aplikasi dikirim tanpa instruksi eksplisit.
+
+### 5. Pencarian remote global dengan constraint (Global Hunt)
+
+```text
+Cari peran Product Manager remote yang secara eksplisit menerima
+pelamar berbasis di Indonesia. Cek izin kerja, persyaratan bahasa,
+dan overlap zona waktu per posting. Mata uang dan gaji jika
+dinyatakan — tidak konversi tanpa sumber rate.
+```
+
+**Ekspektasi:** Kelayakan negara per posting, constraint bahasa
+dan zona waktu, gaji seperti dinyatakan dengan mata uang.
+Field yang tidak bisa diverifikasi ditandai `Tidak diketahui`.
+
+### 6. Tinjauan risiko penipuan (Verification Hunt)
+
+```text
+Lowongan ini meminta biaya pelatihan di muka $500 sebelum
+onboarding. Nilai tingkat risiko penipuan dan apa yang akan
+dilakukan pemberi kerja yang legit. Jangan klik link-nya.
+```
+
+**Ekspektasi:** Tingkat risiko (Rendah/Sedang/Tinggi/Kritis)
+dengan bukti konkret. Langkah verifikasi aman. Tidak ada instruksi
+untuk berinteraksi dengan posting berisiko.
+
 ## Pemecahan masalah
 
 - **Bundle di-skip saat boot** — versi host harus persis
