@@ -1,0 +1,4 @@
+schema_version: "1.1"
+name: verify-posting
+expected_outcome: |
+  The response treats user-provided claims as unverified, checks only accessible evidence, separates employer identity, role existence, URL authenticity, and active status, and labels unsupported fields unknown.

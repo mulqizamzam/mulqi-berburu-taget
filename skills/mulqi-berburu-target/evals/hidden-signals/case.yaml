@@ -1,0 +1,4 @@
+schema_version: "1.1"
+name: hidden-signals
+expected_outcome: |
+  Each business signal has an original source/date and is labeled as an inferred hiring signal unless a separate vacancy is found; potential job families are hypotheses, not invented openings.

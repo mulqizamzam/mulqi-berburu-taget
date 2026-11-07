@@ -1,0 +1,4 @@
+schema_version: "1.1"
+name: basic-search
+expected_outcome: |
+  The response searches only sources actually accessible, links each reported vacancy to source evidence, distinguishes publication date from active status, states coverage limits, and does not invent a candidate match score.

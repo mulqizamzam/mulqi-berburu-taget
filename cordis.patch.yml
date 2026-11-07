@@ -1,0 +1,9 @@
+# Mulqi Berburu Target - DSH bundle patch layer.
+#
+# Inserts one plugin row into the host composition: the bundled-skill
+# provider that registers the `mulqi-berburu-target` skill on ctx.skills.
+# The row's `name` is this package itself; the Loader resolves it from
+# the profile's installed bundles. No config surface is exposed.
+- insert:
+    - id: mulqi-berburu-target
+      name: 'mulqi-berburu-target'

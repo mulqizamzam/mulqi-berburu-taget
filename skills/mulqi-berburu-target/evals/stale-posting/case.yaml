@@ -1,0 +1,4 @@
+schema_version: "1.1"
+name: stale-posting
+expected_outcome: |
+  The response classifies age from the supplied publication date using the current date available to the session, while treating active status as a separate unknown unless current evidence resolves it.

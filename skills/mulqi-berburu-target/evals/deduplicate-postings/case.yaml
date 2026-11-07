@@ -1,0 +1,4 @@
+schema_version: "1.1"
+name: deduplicate-postings
+expected_outcome: |
+  The first two records are grouped with both references retained because the requisition ID and URL agree; the third stays separate because its location, ID, URL, and duties differ.

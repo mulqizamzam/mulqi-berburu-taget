@@ -1,0 +1,4 @@
+schema_version: "1.1"
+name: cv-match
+expected_outcome: |
+  The response bases fit on supplied evidence, recognizes SAP/accounting alignment and the experience/management/CPA gaps, explains missing-data coverage, and does not present the score as hiring probability.

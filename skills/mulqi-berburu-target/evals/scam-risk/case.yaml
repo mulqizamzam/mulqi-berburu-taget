@@ -1,0 +1,4 @@
+schema_version: "1.1"
+name: scam-risk
+expected_outcome: |
+  The response flags the payment and OTP requests as high-risk indicators, advises not to pay or share the OTP, and avoids claiming facts about an unverified recruiter beyond the evidence.

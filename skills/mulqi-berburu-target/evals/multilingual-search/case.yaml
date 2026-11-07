@@ -1,0 +1,4 @@
+schema_version: "1.1"
+name: multilingual-search
+expected_outcome: |
+  The response expands searches with relevant local-language job/recruitment terms when useful, validates translated role meaning, and leaves sponsorship unknown unless the source explicitly states it.

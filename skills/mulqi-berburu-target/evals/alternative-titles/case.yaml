@@ -1,0 +1,4 @@
+schema_version: "1.1"
+name: alternative-titles
+expected_outcome: |
+  The search expands titles through responsibilities and relevant local terms while keeping materially different roles distinct and recording the queries/sources actually used.
