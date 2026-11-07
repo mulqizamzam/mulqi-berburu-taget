@@ -81,6 +81,7 @@ module generation.
 ## Docs
 
 - [Bahasa Indonesia](README-ID.md) — dokumentasi lengkap dalam bahasa Indonesia.
+- [中文](README-ZH.md) — 完整中文文档。
 
 ## Use
 
